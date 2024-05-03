@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="utf-8">
+    <title>Affiliations</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="main.scss">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        * {
+	          margin: 0;
+	          padding: 0;
+	          box-sizing: border-box;
+          }
+
+          body {
+          	display: grid;
+          	place-content: center;
+	          min-height: 100vh;
+          	background: #000;
+          }
+	    
+	        h1{
+		        color:#fff;
+		        font-size: 2rem;
+		        place-content: center;
+            padding: 2em;
+	       }
+
+         .container {
+	          position: relative;
+          	display: grid;
+	          grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	          gap: 1em;
+	          width: 100vh;
+          	height: 500px;
+	          transition: all 400ms;
+         }
+
+         .container:hover .box {
+	          filter: grayscale(100%) opacity(24%);
+         }
+
+         .box {
+          	position: relative;
+          	background: var(--img) center center;
+	          background-size: cover;
+          	transition: all 400ms;
+          	display: flex;
+          	justify-content: center;
+          	align-items: center;
+         }
+
+         .container .box:hover {
+	          filter: grayscale(0%) opacity(100%);
+         }
+
+         .container:has(.box-1:hover) {
+           	grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+         }
+
+         .container:has(.box-2:hover) {
+          	grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+         }
+
+         .container:has(.box-3:hover) {
+	          grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+         }
+
+         .container:has(.box-4:hover) {
+	          grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
+         }
+
+         .container:has(.box-5:hover) {
+	          grid-template-columns: 1fr 1fr 1fr 1fr 3fr;
+         }
+        
+	    
+         .box:nth-child(odd) {
+           	transform: translateY(-16px);
+         }
+
+         .box:nth-child(even) {
+           	transform: translateY(16px);
+         }
+
+         .box::after {
+	        content: attr(data-text);
+          	position: absolute;
+	        bottom: 20px;
+	        background: #000;
+	        color: #fff;
+          	padding: 10px 10px 10px 14px;
+          	letter-spacing: 4px;
+          	text-transform: uppercase;
+          	transform: translateY(60px);
+          	opacity: 0;
+          	transition: all 400ms;
+         }
+
+         .box:hover::after {
+          	transform: translateY(0);
+         	opacity: 1;
+         	transition-delay: 400ms;
+         }
+
+      /* BOXES COLOR */
+         .box-1 {
+             background-color: #FF5733; 
+         }
+         .box-2 {
+             background-color: #33FF57; 
+         }
+         .box-3 {
+             background-color: #5733FF;
+         }
+         .box-4 {
+             background-color: #33FFFF; 
+         }
+         .box-5 {
+             background-color: #34FF45;
+         }
+    </style>
+  </head>
+  <body>
+	  <h1>I'm a member of </h1>
+      <div class="container">
+	         <div class="box box-1" data-text="GWC-Girls Who Code" <a href="https://girlswhocode.com"></a>>
+           </div>
+	      
+           <div class="box box-2" data-text="WWC-Women Who Code" <a href="https://womenwhocode.com"></a>>
+           </div>
+	  
+           <div class="box box-3" data-text="LAIC-Latinas In Cyber" <a href="https://www.linkedin.com/company/latinas-in-cyber/"></a>> 
+           </div>
+	   
+           <div class="box box-4" data-text="LiT-Latinas in Tech" <a href="https://latinasintech.org"></a>>
+		       </div>
+
+           <div class="box box-5" data-text="ISC2" <a href="https://www.isc2.org"></a>>
+		       </div>
+
+	      
+      </div>
+  </body>
+
+</html>
